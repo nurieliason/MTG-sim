@@ -47,7 +47,7 @@ for j in range(1,7):
     for i in range(61, 85):
         rc_start = datetime.now()
         rc_end = datetime.now() + timedelta(seconds = 600)
-        print("=============== " + str(rc_start) + "  Repeat Cycle " + str(rc) + " started =====================")
+        print("=============== " + str(rc_start) + "  Repeat Cycle " + str(rc) + " started ==================== =")
         logger.info("=============== " + str(rc_start) +" Repeat Cycle " + str(rc) + " started =====================")     
         chunk = 0
         per = 15
