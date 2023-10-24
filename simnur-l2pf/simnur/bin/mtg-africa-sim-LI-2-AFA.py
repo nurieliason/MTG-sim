@@ -69,7 +69,7 @@ for i in range(1, 145):
            
     
     while datetime.now() < rc_end:
-	time.sleep(1)
+	    time.sleep(1)
     print("=============== " + str(rc_end) + " Repeat Cycle " + str(i) + " ended =======================")
     logger.info("=============== " + str(rc_end) + " Repeat Cycle " + str(i) + " ended =====================")
 
