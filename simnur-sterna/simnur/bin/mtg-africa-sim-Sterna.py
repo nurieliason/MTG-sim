@@ -22,6 +22,7 @@ private_key = '../../../.ssh/id_rsa_newkey2'
 
 sink_folder_L0 = '/out/l0-products'
 sink_folder_L1 = '/out/l1-products'
+sink_folder_tle = '/out/tle-data'
 
 ##############################################################################
 # Configuration
@@ -65,7 +66,7 @@ for i in range(1, num_of_orbits):
     lst = os.listdir('.')
     lst.sort()
     for file1 in lst:
-        if file1.endswith(".nc.tmp"):                  
+        if file1.endswith(".tmp"):                  
             next_chunk_time = rc_start + timedelta(seconds= (per * chunk))
             while datetime.now() < next_chunk_time:
                 time.sleep(1)
@@ -74,6 +75,8 @@ for i in range(1, num_of_orbits):
                 logger.info("- chunk = " + str(chunk) + " " + file1 + " start sending to FTP")
                 if "MWR-1B-RAD" in file1:
                     sftp_client.cwd(sink_folder_L1)
+                elif "TLE" in file1:
+                    sftp_client.cwd(sink_folder_tle)
                 else:
                     sftp_client.cwd(sink_folder_L0)
                 sftp_client.put(file1, file1)
